@@ -6,7 +6,7 @@ This is an unofficial tampermonkey script for danbooru, adding more download opt
 
 ## Options
 
-The name format of the downloaded file is "XXXX-XX-XX_XXXXXX", which refers to the date time of the post.
+The name format of the downloaded file is "XXXX-XX-XX_XXXXXX.XXX", which refers to the date time of the post and the original image format.
 
 * Download (xxx): Showed when viewing posts. "xxx" means to download the images whose source is it.
   * Other: When xxx is other, it means to download the images that has source url but not is included in the other download options above.

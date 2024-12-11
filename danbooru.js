@@ -1,3 +1,15 @@
+// ==UserScript==
+// @name         Danbooru Download Options
+// @namespace    http://tampermonkey.net/
+// @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
+// @version      2024-12-11
+// @description  Download images with my name patterns.
+// @author       Launch Lee
+// @match        https://danbooru.donmai.us/*
+// @icon         https://danbooru.donmai.us/packs/static/danbooru-logo-128x128-ea111b6658173e847734.png
+// @grant        GM_download
+// ==/UserScript==
+
 (function() {
     'use strict';
 
@@ -62,7 +74,7 @@
     /**
      * Browsing posts.
      * @param {HTMLElement} _post The post element, whose tag is article.
-     * @param {String} _domain The site domain.
+     * @param {String|String[]} _domain The site domain.
      */
     function download_in_posts(_post, _domain="") {
         let post_div = _post.getElementsByTagName('div')[0];
@@ -79,9 +91,9 @@
                     let post_valid;
                     if (_domain.length > 0) {
                         if (post_source.length > 0) {
-                            if (_domain.includes('|')) {
+                            if (_domain instanceof Array) {
                                 post_valid = true;
-                                for (let _exclude of _domain.split('|')) {
+                                for (let _exclude of _domain) {
                                     if (post_source[0].getAttribute('href').includes(_exclude)) {
                                         post_valid = false;
                                         break;
@@ -190,12 +202,13 @@
         }
 
         // Download options in options
+        let sources_sites = ['Twitter', 'Pixiv', 'Yande', 'DLsite']
+        let sources_domains = ['twitter.com', 'pixiv.net', 'yande.re', 'dlsite.com']
         options_ul.appendChild(download_li_posts(posts));
-        options_ul.appendChild(download_li_posts(posts, 'Twitter', 'twitter.com'));
-        options_ul.appendChild(download_li_posts(posts, 'Pixiv', 'pixiv.net'));
-        options_ul.appendChild(download_li_posts(posts, 'Yande', 'yande.re'));
-        options_ul.appendChild(download_li_posts(posts, 'DLsite', 'dlsite.com'));
-        options_ul.appendChild(download_li_posts(posts, 'Other', 'twitter.com|pixiv.net|yande.re|dlsite.com'));
+        for (let i = 0; i < sources_domains.length; i++) {
+            options_ul.appendChild(download_li_posts(posts, sources_sites[i], sources_domains[i]));
+        }
+        options_ul.appendChild(download_li_posts(posts, 'Other', sources_domains));
         options_ul.appendChild(download_li_posts(posts, 'Unknown', '?'));
     } else {
         // Browsing
