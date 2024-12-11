@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
-// @version      2024.12.11.2
+// @version      2024.12.11.3
 // @description  Download images with my name patterns.
 // @author       Launch Lee
 // @match        https://danbooru.donmai.us/*
@@ -15,11 +15,26 @@
     'use strict';
 
     /**
+     * Change the border of the post.
+     * @param {HTMLDivElement} _post_div The post element, whose tag is div.
+     * @param {String} _border_width The border width.
+     * @param {String} _border_style The border style.
+     * @param {String} _border_color The border color.
+     */
+    function borders_on_post(_post_div, _border_width, _border_style, _border_color) {
+        _post_div.style.borderLeft = `${_border_width} ${_border_style} ${_border_color}`;
+        _post_div.style.borderRight = `${_border_width} ${_border_style} ${_border_color}`;
+        _post_div.style.borderBottom = `${_border_width} ${_border_style} ${_border_color}`;
+        _post_div.style.borderRadius = `${_border_width}`;
+    }
+
+    /**
      * Browsing a post.
      * @param {Document} _document The document.
+     * @param {HTMLDivElement} _post_div The post div element in posts page.
      * @param {Boolean} _modify True when browsing a post.
      */
-    function download_in_post(_document, _modify=true) {
+    function download_in_post(_document, _post_div=null) {
         let post_date = _document.getElementById('post-info-date').getElementsByTagName('time')[0].getAttribute('title');
         let date_time = post_date.split(' ');
         let basename = date_time[0] + '_' + date_time[1].replaceAll(':', '');
@@ -41,7 +56,7 @@
             name: filename,
             header: req_header
         };
-        if (_modify) {
+        if (_post_div === null) {
             let new_option_download_li = _document.createElement('li');
             let new_option_download_a = _document.createElement('a');
             new_option_download_a.textContent = 'Download (date)';
@@ -55,21 +70,9 @@
             option_download.after(new_option_download_li);
         } else {
             GM_download(req_detail);
+            let border_color = '#27ae60'; // Green
+            borders_on_post(_post_div, '.1em', 'solid', border_color);
         }
-    }
-
-    /**
-     * Change the border of the post.
-     * @param {HTMLDivElement} _post_div The post element, whose tag is div.
-     * @param {String} _border_width The border width.
-     * @param {String} _border_style The border style.
-     * @param {String} _border_color The border color.
-     */
-    function borders_on_post(_post_div, _border_width, _border_style, _border_color) {
-        _post_div.style.borderLeft = `${_border_width} ${_border_style} ${_border_color}`;
-        _post_div.style.borderRight = `${_border_width} ${_border_style} ${_border_color}`;
-        _post_div.style.borderBottom = `${_border_width} ${_border_style} ${_border_color}`;
-        _post_div.style.borderRadius = `${_border_width}`;
     }
 
     /**
@@ -114,12 +117,11 @@
                         post_valid = true;
                     }
                     if (post_valid) {
-                        border_color = '#27ae60'; // Green
-                        download_in_post(post_dom, false);
+                        download_in_post(post_dom, post_div);
                     } else {
                         border_color = '#f1c40f'; // Yellow
+                        borders_on_post(post_div, '.1em', 'solid', border_color);
                     }
-                    borders_on_post(post_div, '.1em', 'solid', border_color);
                 }).catch(error => {
                     console.error(`Error: ${error}`);
                     let post_div = _post.getElementsByTagName('div')[0];
