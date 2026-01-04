@@ -3,11 +3,11 @@
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
-// @version      2024.12.11.3
+// @version      2024.12.11.7
 // @description  Download images with my name patterns.
 // @author       Launch Lee
 // @match        https://danbooru.donmai.us/*
-// @icon         https://danbooru.donmai.us/packs/static/danbooru-logo-128x128-ea111b6658173e847734.png
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJUExURQMCA7CNaaWBYRsvcHUAAAAHdElNRQfqAQwOIQiEZ7SXAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI2LTAxLTEyVDE0OjI3OjQ1KzAwOjAwmP1aDwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNi0wMS0xMlQxNDoyNzo0NSswMDowMOmg4rMAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjYtMDEtMTJUMTQ6MzM6MDgrMDA6MDCTTdPsAAAANUlEQVQY02NgIAowwgAGnxFDJboCUgWYGIAIBJgYmSCAgQkqwAQVQhJgwiLACBJgQFNBHAAATSkAqR1RSgkAAAAASUVORK5CYII=
 // @grant        GM_download
 // ==/UserScript==
 
