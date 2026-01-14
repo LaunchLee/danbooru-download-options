@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Danbooru Download Options
-// @namespace    http://tampermonkey.net/
+// @namespace    http://github.com/LaunchLee/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru.js
-// @version      2024.12.11.7
+// @version      2024.12.11.8
 // @description  Download images with my name patterns.
 // @author       Launch Lee
 // @match        https://danbooru.donmai.us/*
