@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name         DeepML Jump
 // @namespace    http://github.com/LaunchLee/
+// @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.js
+// @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.js
 // @version      2026.01.12.2
 // @description  Jump to the first problem that is not solved.
 // @author       Launch Lee
