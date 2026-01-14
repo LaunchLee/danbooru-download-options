@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         KF Deposits Count
-// @namespace    http://github.com/LaunchLee/
-// @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.js
-// @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.js
+// @namespace    https://github.com/LaunchLee/danbooru-download-options/
+// @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.user.js
+// @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.user.js
 // @version      2026.01.04.2
 // @description  Make the game deposites count be minused at clicking.
 // @author       Launch Lee
