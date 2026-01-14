@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru-download-options.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru-download-options.user.js
-// @version      2024.12.11.8
+// @version      2024.12.11.9
 // @description  Download images with my name patterns.
 // @author       Launch Lee
 // @match        https://danbooru.donmai.us/*
