@@ -3,11 +3,11 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru-download-options.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/danbooru-download-options.user.js
-// @version      2024.12.11.9
+// @version      2024.12.11.10
 // @description  Download images with my name patterns.
 // @author       Launch Lee
 // @match        https://danbooru.donmai.us/*
-// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJUExURQMCA7CNaaWBYRsvcHUAAAAHdElNRQfqAQwOIQiEZ7SXAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI2LTAxLTEyVDE0OjI3OjQ1KzAwOjAwmP1aDwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNi0wMS0xMlQxNDoyNzo0NSswMDowMOmg4rMAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjYtMDEtMTJUMTQ6MzM6MDgrMDA6MDCTTdPsAAAANUlEQVQY02NgIAowwgAGnxFDJboCUgWYGIAIBJgYmSCAgQkqwAQVQhJgwiLACBJgQFNBHAAATSkAqR1RSgkAAAAASUVORK5CYII=
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAASUExURQAAAAAAALqVcLmTcLCMaKSBXx4o5I8AAAABdFJOUwBA5thmAAAAB3RJTUUH6gEOBRMXQkPKeQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNi0wMS0xNFQwNToxNjowMCswMDowMCunJ3oAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjYtMDEtMTRUMDU6MTY6MDArMDA6MDBa+p/GAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDI2LTAxLTE0VDA1OjE5OjIzKzAwOjAwjyn4dAAAAEdJREFUGNONj0EOgDAQAgu0//+ybNFUTWOccGHCYbe1HVikcyIy4uwGxHPPiNvgU0iCU6KrBzhTmFHAKTEu/ogcugS2n705ANtVAeFnxY4eAAAAAElFTkSuQmCC
 // @grant        GM_download
 // ==/UserScript==
 

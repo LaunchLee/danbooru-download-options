@@ -3,11 +3,11 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.14.2
+// @version      2026.01.14.3
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
-// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAASUExURf///wCW+gOX+ly8/Kzd/e74/1bPsdIAAAABdFJOUwBA5thmAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+oBDgQ4Hkwt5YMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjYtMDEtMTRUMDQ6NTU6NDArMDA6MDAplTiEAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI2LTAxLTE0VDA0OjU1OjQwKzAwOjAwWMiAOAAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNi0wMS0xNFQwNDo1NjozMCswMDowMO4vE/0AAABMSURBVBjTdY8BCsAwCANt4/3/y7Oj69KOBQl4iNGI1k0t9n6QfugGqpIMJAmkAzIneSbKQS/Q8j9ApYAvHZIvLcliZ7PAdvrnufP9C1GrAnpqk53NAAAAAElFTkSuQmCC
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAADYUExURf///wCW+gWY+iWl+yyo+xyh+wua+huh+yin+wyb+j6w+93x/ur2/8np/kGx+4nO/b/k/trw/uX0/sLm/pDR/Um0+w6c+la5/P7+/6LZ/bPg/vP6//b7/7vj/k62/K3d/YzQ/RGd+qXa/Ref+pvW/ePz/vr9/2fB/GS//CKk+128/MTm/tTt/qnc/nLF/Duu++z3/7fh/k+2+2C9/JzW/YPM/LLf/Reg+tDr/n7K/GnB/Eu1/Dyv+9nv/nvJ/HXG/Kjb/TGq+1O4/O74/7zj/pbU/YTM/Tas+43BDQkAAAABdFJOUwBA5thmAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+oBDgUYACJklnUAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjYtMDEtMTRUMDU6MTU6MjgrMDA6MDCxWtVjAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI2LTAxLTE0VDA1OjE1OjI4KzAwOjAwwAdt3wAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNi0wMS0xNFQwNToyNDowMCswMDowMJD4CCUAAAFZSURBVEjHvdbZcoIwFAZgohKhLHWpJCooKiCle9WudtG29v3fqDTBAadODrmo/xX553wXBAaiKDwIjFIMPL5Dyo3npPx8JmSBzDwTskBuPhWHBZVqTeVXuK5pqg6CI8O0tHTaPm40Wy2jfdJxxIBQSru63evTLK43qEDAHZq0kL4/AsCfjCeSgAa4DAgtK4z4ZTSFgRVXHec0OeOrcxUCF9nEJODrSwC069tiNGRFQxcCd5A3V9e/jVkTAquw8/iG3fatEIyLlc+qmRDMi9WCVVMhuCu+PnNWJUJgVPPm/oFtgy3e1se8eWJFUxUD83lbLA1WdIEHR8OY7SwmL/zBdCBAo/YrIW+ey1fvGAQ7MVZICphrJAVCgiDQd/PxyFsiEIxJL/sOfHzORggGAcKrZPEVbOLvPZ+yvUCUHbCWBerGT2OXB2UiD/7/H3eA/7T80UH+cCJ1/PkBXnM64c1nYQcAAAAASUVORK5CYII=
 // @grant        GM_getValue
 // @grant        GM_setValue
 // ==/UserScript==

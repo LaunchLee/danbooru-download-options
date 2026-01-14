@@ -3,11 +3,11 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/kf-deposits.user.js
-// @version      2026.01.04.3
+// @version      2026.01.04.4
 // @description  Make the game deposites count be minused at clicking.
 // @author       Launch Lee
 // @match        https://bbs.kfpromax.com/kf_fw_ig_mybp.php
-// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGUExURQAAAP8AihaS5xwAAAABdFJOUwBA5thmAAAAB3RJTUUH6gEOBQwNcns9nQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNi0wMS0xNFQwNToxMDozMCswMDowMKg2UN4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjYtMDEtMTRUMDU6MTA6MzArMDA6MDDZa+hiAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDI2LTAxLTE0VDA1OjEyOjEzKzAwOjAw+UYEYAAAAGZJREFUOMvVkkEOgDAIBHf//2ljtChhYdOTkUubzqSUAvC/4BkTTWvBet+c0fBqMLSlsuFh5DvfJIzygkmAErgtRKZWuMschGunhFxzrQIqeSvIn3wM6l74btp58BMFO5OL9fCzOAALKwCFnzVW8wAAAABJRU5ErkJggg==
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGUExURQAAAP4AihdQjSsAAAABdFJOUwBA5thmAAAAB3RJTUUH6gEOBRg3mtkzegAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNi0wMS0xNFQwNToxMDozMCswMDowMKg2UN4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjYtMDEtMTRUMDU6MTA6MzArMDA6MDDZa+hiAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDI2LTAxLTE0VDA1OjI0OjU1KzAwOjAwiiAp5gAAAGZJREFUOMvVkkEOgDAIBHf//2ljtChhYdOTkUubzqSUAvC/4BkTTWvBet+c0fBqMLSlsuFh5DvfJIzygkmAErgtRKZWuMschGunhFxzrQIqeSvIn3wM6l74btp58BMFO5OL9fCzOAALKwCFnzVW8wAAAABJRU5ErkJggg==
 // @grant        none
 // ==/UserScript==
 
