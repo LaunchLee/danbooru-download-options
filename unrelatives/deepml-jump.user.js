@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.user.js
-// @version      2026.01.16.1
+// @version      2026.01.16.2
 // @description  Jump to the first problem that is not solved.
 // @author       Launch Lee
 // @match        https://www.deep-ml.com/problems
@@ -68,13 +68,12 @@
 
     function clickNext(n) {
         if (n > 0 && window.location.pathname == "/problems") {
-            console.log("[INFO] Problem:", jump_to_id, "Page:", jump_to_page);
+            console.log("[INFO] Jump dst Problem:", jump_to_id, "Page:", jump_to_page);
             let next = document.querySelector("a[aria-label='Go to next page']");
             if (next) {
                 for (let i = 0; i < n; i++) {
                     setTimeout(() => {
                         next.click();
-                        console.log("[INFO] Next:", i + 1, "/", n, "time(s)");
                     }, 200 * i);
                 }
                 return true;
@@ -85,13 +84,12 @@
 
     function clickPrevious(n) {
         if (n > 0 && window.location.pathname == "/problems") {
-            console.log("[INFO] Problem:", jump_to_id, "Page:", jump_to_page);
+            console.log("[INFO] Jump dst Problem:", jump_to_id, "Page:", jump_to_page);
             let previous = document.querySelector("a[aria-label='Go to previous page']");
             if (previous) {
                 for (let i = 0; i < n; i++) {
                     setTimeout(() => {
                         previous.click();
-                        console.log("[INFO] Previous:", i + 1, "/", n, "time(s)");
                     }, 200 * i);
                 }
                 return true;
