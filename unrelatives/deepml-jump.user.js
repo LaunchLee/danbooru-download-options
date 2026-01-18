@@ -65,7 +65,7 @@
     }
 
     function addHistoryMonitor() {
-        let react_time = 1000;
+        let react_time = 2000;
         // --- hook pushState ---
         const origPushState = history.pushState;
         history.pushState = function(...args) {
