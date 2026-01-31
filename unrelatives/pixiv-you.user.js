@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.14.3
+// @version      2026.01.31.1
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -15,7 +15,7 @@
 (function () {
     'use strict';
 
-    // Config button ==================================================
+    // Config button ==========================================================
     const config_btn = document.createElement('button');
     config_btn.textContent = "PY";
     config_btn.style.display = "inline-block";
@@ -25,24 +25,23 @@
     config_btn.style.padding = "1em";
     config_btn.style.cursor = "pointer";
     config_btn.style.color = "white";
-    config_btn.style.backgroundColor = "black";
-    config_btn.style.border = ".1em solid black";
+    config_btn.style.backgroundColor = "#00000088";
     config_btn.style.borderRadius = "3em";
     config_btn.addEventListener("mouseenter", (ev) => {
-        config_btn.style.backgroundColor = "#424242";
+        config_btn.style.backgroundColor = "#000000";
     });
     config_btn.addEventListener("mouseleave", (ev) => {
-        config_btn.style.backgroundColor = "black";
+        config_btn.style.backgroundColor = "#00000088";
     });
     config_btn.addEventListener("mousedown", (ev) => {
-        config_btn.style.backgroundColor = "#757575";
+        config_btn.style.backgroundColor = "#000000BB";
     });
     config_btn.addEventListener("mouseup", (ev) => {
-        config_btn.style.backgroundColor = "#424242";
+        config_btn.style.backgroundColor = "#000000";
     });
     document.body.append(config_btn);
 
-    // Config box ==================================================
+    // Config box =============================================================
     const config_box = document.createElement('div');
     config_box.style.maxWidth = "24em";
     config_box.style.display = "none";
@@ -56,48 +55,70 @@
     config_box.style.borderRadius = "1em";
     document.body.append(config_box);
 
-    // Config inputs ==================================================
+    // Config inputs ==========================================================
     const od_properties = {
-        od_id: GM_getValue("od_id", ""),
-        od_path: GM_getValue("od_path", ""),
-        od_token: GM_getValue("od_token", ""),
-        od_token_timestamp: GM_getValue("od_token_timestamp"),
-        od_token_duration: GM_getValue("od_token_duration", ""),
+        d_authors: GM_getValue("d_authors", ""),
         d_date: GM_getValue("d_date", "1970/01/01"),
-        d_date_remark: GM_getValue("d_date_remark", "") // Included
+        d_date_remark: GM_getValue("d_date_remark", "")
     };
-    if (od_properties.od_token_timestamp + od_properties.od_token_duration - 1800000 > Date.now()) {
-        od_properties.od_token = "";
-        GM_setValue("od_token", "");
-    }
     // With the same keys
     const input_composite = {
-        od_id: "ID",
-        od_path: "Path",
-        od_token: "Token",
+        d_authors: "Following",
         d_date: "Last Date",
         d_date_remark: "Last Title"
     };
     // For every value as list: [0]: <label>, [1]: <input>
     const input_elements = {
-        od_id: [],
-        od_path: [],
-        od_token: [],
+        d_authors: [],
         d_date: [],
         d_date_remark: []
     };
     for (const [key, value] of Object.entries(input_composite)) {
-        input_elements[key].push(document.createElement('label'));
-        input_elements[key].push(document.createElement('input'));
-        input_elements[key][1].id = `pixiv-you-${key}`;
-        input_elements[key][1].value = od_properties[key];
-        input_elements[key][1].style.padding = ".2em .8em";
-        input_elements[key][1].style.borderRadius = "1em";
-        input_elements[key][0].htmlFor = input_elements[key][1].id;
-        input_elements[key][0].textContent = `${value} `;
-        input_elements[key][0].style.display = "inline-block";
-        input_elements[key][0].style.width = "5em";
-        config_box.append(input_elements[key][0], input_elements[key][1], document.createElement('hr'));
+        let placeholder;
+        let input;
+        let label = document.createElement('label');
+        switch (key) {
+            case "d_authors":
+                placeholder = "XXX, XXX, XXX";
+                break;
+            case "d_date_remark":
+                placeholder = "Substring of title";
+                break;
+            default:
+                placeholder = "";
+        }
+        if (key === "d_authors") {
+            input = document.createElement('textarea');
+            input.rows = "5";
+            input.cols = "40";
+        } else {
+            input = document.createElement('input');
+        }
+        input.placeholder = placeholder;
+        input.id = `pixiv-you-${key}`;
+        input.value = od_properties[key];
+        input.style.padding = ".2em .8em";
+        input.style.borderRadius = "1em";
+        label.htmlFor = input.id;
+        label.textContent = `${value} `;
+        label.style.display = "inline-block";
+        label.style.width = "5em";
+        input_elements[key].push(label);
+        input_elements[key].push(input);
+        if (key === "d_authors") {
+            config_box.append(
+                input_elements[key][0],
+                document.createElement("br"),
+                input_elements[key][1],
+                document.createElement('hr')
+            );
+        } else {
+            config_box.append(
+                input_elements[key][0],
+                input_elements[key][1],
+                document.createElement('hr')
+            );
+        }
     }
     const config_box_tip = document.createElement('div');
     config_box_tip.style.display = "flex";
@@ -136,11 +157,6 @@
     config_box.append(config_box_tip);
 
     // Input elements events
-    input_elements.od_token[1].addEventListener("click", function(ev) {
-        if (!this.value) {
-            console.log("WARN: Token probing is not implemented.");
-        }
-    });
     input_elements.d_date[1].addEventListener("click", function(ev) {
         let date = new Date();
         let year = date.getFullYear();
@@ -152,49 +168,35 @@
         }
     })
 
-    // Input data related processes
-    const d_authors = [];
-    /**
-     * Update author list.
-     * @param {String} the_id OneDrive ID.
-     * @param {String} the_path OneDrive path.
-     * @param {String} the_token OneDrive Token.
-     */
-    function update_authors(the_id, the_path, the_token) {
-        const url = `https://my.microsoftpersonalcontent.com/_api/v2.0/drives/${the_id}/root:/${the_path}:/children`;
-        const accessToken = the_token;
-        fetch(url, {
-            headers: { "Authorization": "Bearer " + accessToken }
-        }).then((response) => {
-            if (response.ok) {
-                return response.text()
-            }
-            return `Fetch OneDrive childrens error: ${response.status}`;
-        }).then((the_text) => {
-            console.log(the_text)
+    // Following authors
+    let d_authors = [];
+    if (od_properties.d_authors.length > 0) {
+        d_authors = od_properties.d_authors.split(",").map((x, i, arr) => {
+            return x.trim();
+        }).filter((x, i, arr) => {
+            return x.length > 0;
         });
     }
-    function update_authors_wrap() {
-        if (od_properties.od_id && od_properties.od_path && od_properties.od_token) {
-            update_authors(od_properties.od_id, od_properties.od_path, od_properties.od_token);
-        }
-    }
-    update_authors_wrap();
 
     // Toggle to save inputs
     config_btn.addEventListener("click", (ev) => {
         if (config_box.style.display === "block") {
             let input_values = {
-                od_id: input_elements.od_id[1].value,
-                od_path: input_elements.od_path[1].value,
-                od_token: input_elements.od_token[1].value,
+                d_authors: input_elements.d_authors.value,
                 d_date: input_elements.d_date[1].value,
                 d_date_remark: input_elements.d_date_remark[1].value
             };
             for (const [key, value] of Object.entries(input_values)) {
-                if (value && value !== od_properties[key] || key === "od_token") {
+                if (value && value !== od_properties[key]) {
                     od_properties[key] = value;
                     GM_setValue(key, value);
+                }
+                if (key === "d_authors" && value.length > 0) {
+                    d_authors = value.split(",").map((x, i, arr) => {
+                        return x.trim();
+                    }).filter((x, i, arr) => {
+                        return x.length > 0;
+                    });
                 }
             }
             config_box.style.display = "none";
@@ -206,40 +208,14 @@
         }
     });
 
-    // Config variables ==================================================
-    d_authors.push(
-        // Hans
-        "白河子", "絆", "冰糖雪璃",
-        "大嘘",
-        "高嶋しょあ", "宮坂みゆ", "宮瀬まひろ", "鬼针草",
-        "加瀬大輝",
-        "相音うしお", "星の紅茶", "小林ちさと", "小日向ほしみ", "小森くづゆ",
-        "最中かーる",
-        // Latins
-        "cutlass", "Enuni",
-        "jizell", "karory",
-        "lambda", "Na-Ga", "NABLACK",
-        "piyopoyo", "pon",
-        "sakura", "TwinBox",
-        "WERI",
-        // Kanas
-        "うどん。",
-        "カンザリン", "きみしま青", "こくと",
-        "くらしっく", "クロノミツキ",
-        "しらたま❄",
-        "だにまる",
-        "なきょ", "にゅむ",
-        "びねつ", "ひらがな", "ふわり", "ぺんたごん", "ほうき星", "ほみのつ",
-        "みはち", "むにんしき",
-        "ゆんみ", "ゆがー",
-        "RUHEE ルヒ", "れぶん",
-    );
+
+    // Functions ==============================================================
 
     /**
-     * 
+     * Date time from JST to Local.
      * @param {String} original_string Original datetime string in the link.
      */
-    function datetime_jst2cst(original_string) {
+    function datetime_jst2local(original_string) {
         const [y, m, d, hh, mm, ss] = original_string.split('/');
         const iso_datetime = `${y}-${m}-${d}T${hh}:${mm}:${ss}+09:00`
         const local_date = new Date(iso_datetime);
@@ -270,7 +246,7 @@
             if (!illust_datetime) {
                 console.log("Warn: Illust date detection error happened.");
             } else {
-                illust_date = datetime_jst2cst(illust_datetime);
+                illust_date = datetime_jst2local(illust_datetime);
             }
 
             let color_green = "#52be8080";
