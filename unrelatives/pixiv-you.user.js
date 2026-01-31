@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.31.1
+// @version      2026.01.31.2
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -89,8 +89,8 @@
         }
         if (key === "d_authors") {
             input = document.createElement('textarea');
-            input.rows = "5";
-            input.cols = "40";
+            input.rows = "10";
+            input.cols = "48";
         } else {
             input = document.createElement('input');
         }
@@ -182,7 +182,7 @@
     config_btn.addEventListener("click", (ev) => {
         if (config_box.style.display === "block") {
             let input_values = {
-                d_authors: input_elements.d_authors.value,
+                d_authors: input_elements.d_authors[1].value,
                 d_date: input_elements.d_date[1].value,
                 d_date_remark: input_elements.d_date_remark[1].value
             };
