@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.31.2
+// @version      2026.01.31.3
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -43,7 +43,7 @@
 
     // Config box =============================================================
     const config_box = document.createElement('div');
-    config_box.style.maxWidth = "24em";
+    config_box.style.maxWidth = "32em";
     config_box.style.display = "none";
     config_box.style.position = "fixed";
     config_box.style.left = "2em"
@@ -93,6 +93,7 @@
             input.cols = "48";
         } else {
             input = document.createElement('input');
+            input.style.width = "16em";
         }
         input.placeholder = placeholder;
         input.id = `pixiv-you-${key}`;
@@ -108,6 +109,7 @@
         if (key === "d_authors") {
             config_box.append(
                 input_elements[key][0],
+                document.createElement("br"),
                 document.createElement("br"),
                 input_elements[key][1],
                 document.createElement('hr')
