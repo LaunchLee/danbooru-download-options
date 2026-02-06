@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.31.3
+// @version      2026.01.31.4
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -171,9 +171,11 @@
     })
 
     // Following authors
+    const spliters = /[,;|\n]+/;
     let d_authors = [];
+    let d_authors_chg = [];
     if (od_properties.d_authors.length > 0) {
-        d_authors = od_properties.d_authors.split(",").map((x, i, arr) => {
+        d_authors = od_properties.d_authors.split(spliters).map((x, i, arr) => {
             return x.trim();
         }).filter((x, i, arr) => {
             return x.length > 0;
@@ -194,11 +196,14 @@
                     GM_setValue(key, value);
                 }
                 if (key === "d_authors" && value.length > 0) {
-                    d_authors = value.split(",").map((x, i, arr) => {
+                    let new_authors = value.split(spliters).map((x, i, arr) => {
                         return x.trim();
                     }).filter((x, i, arr) => {
                         return x.length > 0;
                     });
+                    let new_authors_set = new Set(new_authors);
+                    d_authors_chg = d_authors.filter(item => !new_authors_set.has(item));
+                    d_authors = new_authors;
                 }
             }
             config_box.style.display = "none";
@@ -289,6 +294,19 @@
                         }
                     }
                     marked_count++;
+                }
+            }
+            for (let d_author of d_authors_chg) {
+                if (author_name.startsWith(d_author)) {
+                    _illust_card.style.backgroundImage = "";
+                    _illust_card.style.borderRadius = "";
+                    if (author_element) {
+                        let author_banner = author_element.parentElement?.parentElement;
+                        if (author_banner) {
+                            author_banner.style.backgroundColor = "";
+                            author_banner.style.borderRadius = "";
+                        }
+                    }
                 }
             }
         }
