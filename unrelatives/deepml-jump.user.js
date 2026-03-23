@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/deepml-jump.user.js
-// @version      2026.01.16.2
+// @version      2026.03.23.1
 // @description  Jump to the first problem that is not solved.
 // @author       Launch Lee
 // @match        https://www.deep-ml.com/problems
