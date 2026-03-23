@@ -25,6 +25,9 @@
     let listener_ready = false;
     let jump_appended = false;
 
+    let query_next_btn = "button[aria-label='Next page']";
+    let query_previous_btn = "button[aria-label='Previous page']";
+
     // -----------------------------
     // Hook fetch()
     // -----------------------------
@@ -69,7 +72,7 @@
     function clickNext(n) {
         if (n > 0 && window.location.pathname == "/problems") {
             console.log("[INFO] Jump dst Problem:", jump_to_id, "Page:", jump_to_page);
-            let next = document.querySelector("a[aria-label='Go to next page']");
+            let next = document.querySelector(query_next_btn);
             if (next) {
                 for (let i = 0; i < n; i++) {
                     setTimeout(() => {
@@ -85,7 +88,7 @@
     function clickPrevious(n) {
         if (n > 0 && window.location.pathname == "/problems") {
             console.log("[INFO] Jump dst Problem:", jump_to_id, "Page:", jump_to_page);
-            let previous = document.querySelector("a[aria-label='Go to previous page']");
+            let previous = document.querySelector(query_previous_btn);
             if (previous) {
                 for (let i = 0; i < n; i++) {
                     setTimeout(() => {
@@ -188,8 +191,8 @@
     }
 
     function addPageListener() {
-        const previous = document.querySelector("a[aria-label='Go to previous page']");
-        const next = document.querySelector("a[aria-label='Go to next page']");
+        const previous = document.querySelector(query_previous_btn);
+        const next = document.querySelector(query_next_btn);
         if (previous || next) {
             previous.addEventListener("click", previousListenser);
             next.addEventListener("click", nextListener);
