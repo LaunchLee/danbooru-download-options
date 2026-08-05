@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.01.31.4
+// @version      2026.08.05.1
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -545,7 +545,7 @@
                 console.log("Detected as author page");
                 user_viewing_author.textContent = document.title.split(' - ').at(0);
                 function body_type_2(_) {
-                    let user_wrapper = document.getElementsByClassName('userHomeWrapper').item(0);
+                    let user_wrapper = document.getElementsByClassName('userHomeULParent').item(0);
                     if (user_wrapper && user_wrapper.firstElementChild?.tagName === 'UL') {
                         let illust_list = user_wrapper.firstElementChild;
                         mark_illusts(illust_list, mark_illust_by(card_selector_user));
