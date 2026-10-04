@@ -3,7 +3,7 @@
 // @namespace    https://github.com/LaunchLee/danbooru-download-options/
 // @updateURL    https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
 // @downloadURL  https://raw.githubusercontent.com/LaunchLee/danbooru-download-options/refs/heads/main/unrelatives/pixiv-you.user.js
-// @version      2026.08.05.1
+// @version      2026.10.04.1
 // @description  Specially mark authors from my download list.
 // @author       Launch Lee
 // @match        https://www.pixiv.net/*
@@ -290,6 +290,7 @@
                         let author_banner = author_element.parentElement?.parentElement;
                         if (author_banner) {
                             author_banner.style.backgroundColor = `linear-gradient(to top, ${color_select}, transparent)`;
+                            author_banner.style.borderBottom = `.3em solid ${color_select}`
                             author_banner.style.borderRadius = `0 0 ${border_radius} ${border_radius}`;
                         }
                     }
